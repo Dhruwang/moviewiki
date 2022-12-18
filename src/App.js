@@ -3,18 +3,16 @@ import Sidebar from './Components/Sidebar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Background from './Components/Background';
 import Home from './Components/Home';
+import Trending from './Components/Trending';
 
 
 function App() {
   return (
     <BrowserRouter>
-    <div className='d-flex'>
       <Background />
       <Sidebar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-      </Routes>
-      </div>
+      <Home />
+      <Trending />
     </BrowserRouter>
   );
 }

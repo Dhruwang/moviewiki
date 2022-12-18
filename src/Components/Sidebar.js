@@ -4,6 +4,9 @@ export default function Sidebar() {
   return (
     <div className='sideBar'>
         <div className='darkback'></div>
+        <div className='leftSpace'></div>
+        <div className='sideBarMain'>
+
         <div className='sideBarUpper p-4'>
 
         <h2>MovieWiki</h2>
@@ -18,6 +21,7 @@ export default function Sidebar() {
         <hr></hr>
         </div>
         <Link to="/logout"><h5 className='align-self-end m-4'> <i class="bi bi-box-arrow-in-left"></i> Logout</h5></Link>
+        </div>
     </div>
   )
 }

@@ -12,8 +12,8 @@ export default function Sidebar() {
         <h2>MovieWiki</h2>
         <hr></hr>
         <ul className='px-0'>
-            <li><i class="bi bi-house " /><Link>  Home</Link></li>
-            <li><i class="bi bi-lightning "></i> <Link> Trending</Link></li>
+            <li><i class="bi bi-house " /><Link to="/">  Home</Link></li>
+            <li><i class="bi bi-lightning "></i> <Link to="/trending"> Trending</Link></li>
             <li><i class="bi bi-camera-reels "></i><Link> Movie</Link></li>
             <li><i class="bi bi-collection-play "></i><Link> Series</Link></li>
             <li><i class="bi bi-heart "></i><Link> Favourites</Link></li>

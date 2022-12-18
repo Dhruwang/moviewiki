@@ -11,8 +11,10 @@ function App() {
     <BrowserRouter>
       <Background />
       <Sidebar />
-      <Home />
-      <Trending />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/trending" element={<Trending />} />
+      </Routes>
     </BrowserRouter>
   );
 }

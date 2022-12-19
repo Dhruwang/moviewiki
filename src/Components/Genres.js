@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
-export default function Genres() {
+export default function Genres(props) {
     const [genres, setGenres] = useState([])
     const [search, setSearch] = useState('')
     const getGenres = async (parameter) => {
@@ -17,6 +18,7 @@ export default function Genres() {
           }
         
     };
+    
     const handleSearch=(e)=>{
         let check = e.target.value
         let str = check.toUpperCase()
@@ -36,12 +38,13 @@ export default function Genres() {
             <div className='searchBarDiv m-2'>
                     <input type="value" className='searchBar genreSearch' value= {search} onChange={handleSearch} placeholder='Search' />
                 </div>
-            <div className='row mt-4 d-flex align-items-center justify-content-between container'>
+            <div className='genresMainInner mt-4 d-flex align-items-center justify-content-center container '>
                 {genres.map((element, index) => {
                 
-                        return <div className='col-md-3 col-sm-5  genresMainCard genreCard' key={index}>
+                        return <Link onClick={props.handleGenreSelect} value={element.id} to={`/genres/${element.id}`}><div className='genresMainCard genreCard' key={index}>
                             {element.name}
                         </div>
+                        </Link>
                         
                 })}
             </div>

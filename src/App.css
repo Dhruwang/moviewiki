@@ -9,6 +9,10 @@ body{
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
+.spinner-grow{
+  height: 3rem;
+  width: 3rem
+}
 
 /* boostrap icons  */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
@@ -172,7 +176,7 @@ li{
   padding: 0;
 }
 
-.trendingMain,.genresMain{
+.trendingMain,.genresMain,.genreWise{
   text-align: center;
   margin-left: 20vw;
   padding: 40px;
@@ -209,21 +213,35 @@ li{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .genresMainCard{
   margin: 0.5rem;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  width: 15rem;
 }
 .genresMainCard:hover{
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
 }
+.genresMainInner{
+  flex-wrap: wrap;
+}
 @media only screen and (max-width: 1300px) {
   .genresMainCard{
     margin: 1rem 0.1rem;
     font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1069px) {
+  .genresMainCard{
+    width: 20rem;
+  }
+}
+@media only screen and (max-width: 870px) {
+  .genresMainCard{
+    width: 16rem;
   }
 }

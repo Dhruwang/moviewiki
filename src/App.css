@@ -1,11 +1,13 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 body{
   margin: 0;
   padding: 0;
   border-color: black;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* boostrap icons  */
@@ -101,7 +103,7 @@ li{
 
 .home{
   margin-left: 20vw;
-  width: 80vw;
+  width: 78vw;
   height: 100vh;
   /* border: 2px solid red; */
   padding: 1rem 2rem;
@@ -142,7 +144,7 @@ li{
 }
 
 .carousel-item img{
-  width: 100%;
+  width: 90%;
   height: 75vh;
 }
 .trending{
@@ -187,4 +189,10 @@ li{
   height: 3rem;
   border-radius: 5rem;
   border: 2px solid white;
+}
+.dropdown > .btn{
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  border: none;
+  border-radius: 2rem;
 }

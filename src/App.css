@@ -157,7 +157,8 @@ li{
  .Trendcard{
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-top: 1rem;
+  margin: 0.5rem 1rem;
+  
   height: 35vh;
   /* width: 22vh; */
   border-radius: 1rem;

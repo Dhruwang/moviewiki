@@ -6,8 +6,7 @@ import Spinner from './Spinner';
 export default function Trending() {
     const [trending, setTrending] = useState([])
     let [page, setpage] = useState(1)
-    const [type, setType] = useState('all')
-    const [time,setTime] = useState('day')
+    const [filter,setFilter] = useState(['all','day'])
 
     const getMoreTrendingMovies = async () => {
         if (trending.length === 0) {
@@ -16,20 +15,40 @@ export default function Trending() {
         else {
             setpage(++page)
         }
-        const response = await fetch(`https://api.themoviedb.org/3/trending/${type}/${time}?api_key=b3506838d86a0332b82e597ec8d36406&page=${page}`);
+        const response = await fetch(`https://api.themoviedb.org/3/trending/${filter[0]}/${filter[1]}?api_key=b3506838d86a0332b82e597ec8d36406&page=${page}`);
         const jsonData = await response.json();
         setTrending(trending.concat(jsonData.results))
 
     };
     const getTrendingMovies = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/trending/${type}/${time}?api_key=b3506838d86a0332b82e597ec8d36406&page=1`);
+        console.log("running")
+        const response = await fetch(`https://api.themoviedb.org/3/trending/${filter[0]}/${filter[1]}?api_key=b3506838d86a0332b82e597ec8d36406&page=1`);
         const jsonData = await response.json();
         setTrending(trending.concat(jsonData.results))
     };
     
     useEffect(() => {
         getTrendingMovies()
-    }, [type])
+    }, [filter])
+
+    const handleTypeFilter = (e)=>{
+        let initial_type = filter[0]
+        let initial_time = filter[1]
+        
+        setFilter([e.target.value,initial_time])
+        setTrending([])
+        getTrendingMovies()
+        
+    }
+    const handleTimeFilter = (e)=>{
+        let initial_type = filter[0]
+        let initial_time = filter[1]
+        
+        setFilter([initial_type,e.target.value])
+        setTrending([])
+        getTrendingMovies()
+        
+    }
 
 
     return (
@@ -44,10 +63,9 @@ export default function Trending() {
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <button class="dropdown-item" value="all" >All</button>
-                        <button class="dropdown-item" value="movie" >Movies</button>
-                        <button class="dropdown-item" value="tv" >Series</button>
-                        <button class="dropdown-item" value="person" >People</button>
+                        <button class="dropdown-item" value="all" onClick={handleTypeFilter} >All</button>
+                        <button class="dropdown-item" value="movie" onClick={handleTypeFilter} >Movies</button>
+                        <button class="dropdown-item" value="tv" onClick={handleTypeFilter}>Series</button>
                     </div>
                 </div>
                 <div class="dropdown show mx-4">
@@ -56,8 +74,8 @@ export default function Trending() {
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Today</a>
-                        <a class="dropdown-item" href="#">This Week</a>
+                    <button class="dropdown-item" value="day" onClick={handleTimeFilter} >Today</button>
+                        <button class="dropdown-item" value="week" onClick={handleTimeFilter} >This Week</button>
                     </div>
                 </div>
             </div>
@@ -72,9 +90,9 @@ export default function Trending() {
                     </p>
                 }
             >
-                <div className='row d-flex align-items-center justify-content-between'>
+                <div className='overflow-hidden row d-flex align-items-center justify-content-center'>
                     {trending.map((element, index) => {
-                        return <div className='Trendcard col-lg-3 col-xl-2 col-md-5 mx-1' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                        return <div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
                         </div>
                     })}
                 </div>

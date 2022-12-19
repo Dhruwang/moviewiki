@@ -56,10 +56,10 @@ export default function Trending() {
             <h1 className='text-light'>Trending</h1>
             
             <hr></hr>
-            <div className='dropDowns justify-content-center d-flex'>
-                <div class="dropdown show mx-4">
+            <div className='dropDowns  d-flex'>
+                <div class="dropdown show ">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Type
+                        {filter[0]==='tv'?'series':filter[0]}
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -70,7 +70,7 @@ export default function Trending() {
                 </div>
                 <div class="dropdown show mx-4">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Time
+                        {filter[1]}
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -90,7 +90,7 @@ export default function Trending() {
                     </p>
                 }
             >
-                <div className='overflow-hidden row d-flex align-items-center justify-content-center'>
+                <div className='trend-container row d-flex align-items-center justify-content-center'>
                     {trending.map((element, index) => {
                         return <div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
                         </div>

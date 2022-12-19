@@ -87,7 +87,7 @@ export default function Home() {
 
                     })}
                     <div className='Trendcard viewAll col-md-2 '>
-                        <Link to="/trending" className='p-0'>
+                        <Link to="/genres" className='p-0'>
                             <i class="bi bi-arrow-right-circle fs-1"></i>
                             View All</Link>
                     </div>

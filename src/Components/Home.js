@@ -25,6 +25,7 @@ export default function Home() {
     return (
         <>
             <div className='home'>
+                <button className='navbtn'> <a href='#sideBar'>Hello</a></button>
                 <h1 className='text-light mt-2'>Welcome to MovieWiki</h1>
                 <div className='searchBarDiv m-2'>
                     <input type="value" className='searchBar' placeholder='Search' />
@@ -57,7 +58,7 @@ export default function Home() {
             </div>
             <div className='trending'>
                 <h2 className='mb-4'>Trending</h2>
-                <div className='TrendCard d-flex align-items-center justify-content-between'>
+                <div className='trendContainer d-flex align-items-center justify-content-between'>
                     {trending.map((element, index) => {
                         
                         while (index < 4) {

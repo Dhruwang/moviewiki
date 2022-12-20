@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default function Sidebar() {
   return (
-    <div className='sideBar'>
+    <div className='sideBar' id='sideBar'>
         <div className='darkback'></div>
         <div className='leftSpace'></div>
         <div className='sideBarMain'>

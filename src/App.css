@@ -255,9 +255,8 @@ li{
   .genresMainCard{
     width: 20rem;
   }
-  .movieDetailsInner{
-    flex-direction:
-     column;
+  .movieImgText{
+    flex-direction:column;
   }
   .movieImageInnerLeft{
     display: flex;
@@ -314,8 +313,9 @@ li{
   font-weight: 500;
   margin-right: 0.5rem;
 }
-.movieDetailsInner{
+.movieImgText{
   display: flex;
+  flex-direction: row;
   margin-top: 2rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);

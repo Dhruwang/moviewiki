@@ -56,7 +56,7 @@ export default function Trending() {
             <hr></hr>
             <div className='dropDowns  d-flex'>
                 <div class="dropdown show ">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {filter[0]==='tv'?'series':filter[0]}
                     </a>
 
@@ -67,7 +67,7 @@ export default function Trending() {
                     </div>
                 </div>
                 <div class="dropdown show mx-4">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {filter[1]}
                     </a>
 

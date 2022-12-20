@@ -32,9 +32,9 @@ const getGenreMovies = async (genreId) => {
 useEffect(() => {
     getGenreMovies(genreId)
     console.log(genreId)
-    
-
 }, [])
+
+// Function to extract genre id from URL 
     function extractGenreId(url) {
       for (let index = url.length-1; index>0; index--) {
         if (url[index]!=="/") {
@@ -44,7 +44,6 @@ useEffect(() => {
         break  
       }
     }
-    extractGenreId(url)
     
   return (
     <div className='genreWise'>

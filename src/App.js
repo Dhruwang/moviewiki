@@ -7,6 +7,7 @@ import Trending from './Components/Trending';
 import Genres from './Components/Genres';
 import Genrewise from './Components/Genrewise';
 import { useState } from 'react';
+import Moviedetails from './Components/Moviedetails';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/trending" element={<Trending />} />
         <Route exact path="/genres" element={<Genres handleGenreSelect={handleGenreSelect}/>} />
-        <Route exact path="/genres/:no" element={<Genrewise genreid={genreid}/>} />
+        <Route exact path="/genres/:no" element={<Genrewise/>} />
+        <Route exact path="/media/:no" element={<Moviedetails />} />
       </Routes>
     </BrowserRouter>
   );

@@ -19,9 +19,11 @@ body{
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@700&family=Fjalla+One&family=Kdam+Thmor+Pro&family=Maven+Pro:wght@600&family=Noto+Sans&display=swap');
+
 .background{
-  background-image: url(./Images/cover.jpg);
-  /* background-color: black; */
+  /* background-image: url(./Images/cover.jpg); */
+  background-color: black;
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -163,6 +165,7 @@ li{
   background-repeat: no-repeat;
   margin: 0.5rem 1rem;
   height: 35vh;
+  width: 13vw;
   border-radius: 1rem;
   padding: 0;
 }
@@ -176,13 +179,14 @@ li{
   padding: 0;
 }
 
-.trendingMain,.genresMain,.genreWise{
+.trendingMain,.genresMain,.genreWise,.movieDetails{
   text-align: center;
   margin-left: 20vw;
   padding: 40px;
   
 }
 .trend-container{
+  flex-wrap: wrap;
   max-width: 100% !important;
     overflow-x: hidden ;
 }
@@ -239,9 +243,56 @@ li{
   .genresMainCard{
     width: 20rem;
   }
+  .movieDetailsInner{
+    flex-direction:
+     column;
+  }
+  .movieImageInnerLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media only screen and (max-width: 870px) {
   .genresMainCard{
     width: 16rem;
   }
+}
+.movieDetails img{
+  width: 100%;
+  height: 80vh;
+}
+.movieDetails{
+  text-align: left;
+}
+.movieDetails h1{
+  font-family: 'Maven Pro', sans-serif;
+}
+.genreTag{
+  height: 2rem;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.5rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+.movieDetailsInner{
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+}
+.movieDetailsInner img{
+  height: 20rem;
+  width: 15rem;
+}
+.movieDetailsText{
+  padding: 1rem;
+  /* border: 2px solid red; */
+  color: white;
+}
+.heading{
+  font-weight: 600;
 }

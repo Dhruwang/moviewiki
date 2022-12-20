@@ -57,11 +57,12 @@ export default function Home() {
             </div>
             <div className='trending'>
                 <h2 className='mb-4'>Trending</h2>
-                <div className='row d-flex align-items-center justify-content-between'>
+                <div className='TrendCard d-flex align-items-center justify-content-between'>
                     {trending.map((element, index) => {
+                        
                         while (index < 4) {
-                            return <div className='Trendcard col-md-2' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
-                            </div>
+                            return <Link to={`/media/${element.id}`}><div className='Trendcard col-md-2' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                            </div></Link>
                         }
 
                     })}

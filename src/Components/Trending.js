@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "../App.css"
 import Spinner from './Spinner';
+import { Link } from 'react-router-dom';
 
 export default function Trending() {
     const [trending, setTrending] = useState([])
@@ -21,7 +22,6 @@ export default function Trending() {
 
     };
     const getTrendingMovies = async () => {
-        console.log("running")
         const response = await fetch(`https://api.themoviedb.org/3/trending/${filter[0]}/${filter[1]}?api_key=b3506838d86a0332b82e597ec8d36406&page=1`);
         const jsonData = await response.json();
         setTrending(trending.concat(jsonData.results))
@@ -32,7 +32,6 @@ export default function Trending() {
     }, [filter])
 
     const handleTypeFilter = (e)=>{
-        let initial_type = filter[0]
         let initial_time = filter[1]
         
         setFilter([e.target.value,initial_time])
@@ -42,7 +41,6 @@ export default function Trending() {
     }
     const handleTimeFilter = (e)=>{
         let initial_type = filter[0]
-        let initial_time = filter[1]
         
         setFilter([initial_type,e.target.value])
         setTrending([])
@@ -90,14 +88,13 @@ export default function Trending() {
                     </p>
                 }
             >
-                <div className='trend-container row d-flex align-items-center justify-content-center'>
+                <div className='trend-container d-flex align-items-center justify-content-center'>
                     {trending.map((element, index) => {
-                        return <div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
-                        </div>
+                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                        </div></Link>
                     })}
                 </div>
             </InfiniteScroll>
-            {/* <div className='m-4 prevNext text-light fs-4'><a href='#trendingMain'><button className='prevNextBtn mx-4' disabled={page === 1} onClick={handlePrevClick}>&larr;</button></a>   Page {page}   <a href='#trendingMain'><button className='prevNextBtn mx-4' onClick={handleNextClick}>&rarr;</button></a></div> */}
         </div>
     )
 

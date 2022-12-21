@@ -41,7 +41,7 @@ export default function Genres(props) {
             <div className='genresMainInner mt-4 d-flex align-items-center justify-content-center container '>
                 {genres.map((element, index) => {
                 
-                        return <Link onClick={props.handleGenreSelect} value={element.id} to={`/genres/${element.id}`}><div className='genresMainCard genreCard' key={index}>
+                        return <Link to={`/genres/${element.id}`}><div className='genresMainCard genreCard' key={index}>
                             {element.name}
                         </div>
                         </Link>

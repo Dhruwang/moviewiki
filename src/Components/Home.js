@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import Responsive from './Responsive';
 
 export default function Home() {
     const [trending, setTrending] = useState([])
@@ -18,6 +19,7 @@ export default function Home() {
     };
 
 
+
     useEffect(() => {
         getTrendingMovies()
         getGenres()
@@ -25,8 +27,8 @@ export default function Home() {
     return (
         <>
             <div className='home'>
-                <button className='navbtn'> <a href='#sideBar'>Hello</a></button>
-                <h1 className='text-light mt-2'>Welcome to MovieWiki</h1>
+                
+                <h1 className='text-light mt-4'>Welcome to MovieWiki</h1>
                 <div className='searchBarDiv m-2'>
                     <input type="value" className='searchBar' placeholder='Search' />
                 </div>
@@ -62,7 +64,7 @@ export default function Home() {
                     {trending.map((element, index) => {
                         
                         while (index < 4) {
-                            return <Link to={`/media/${element.id}`}><div className='Trendcard col-md-2' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                            return <Link to={`/media/${element.id}`}><div className='Trendcard ' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
                             </div></Link>
                         }
 
@@ -79,12 +81,13 @@ export default function Home() {
             </div>
             <div className='genres'>
                 <h2 className='mb-4'>Genres</h2>
-                <div className='row d-flex align-items-center justify-content-between'>
+                <div className='genreContainer d-flex align-items-center justify-content-between'>
                      {genres.map((element, index) => {
                         while (index < 4) {
-                            return <div className='col-md-2 genreCard' key={index}>
+                            return <Link to={`/genres/${element.id}`}><div className='genreCard' key={index}>
                                 {element.name}
                             </div>
+                            </Link>
                         }
 
                     })}

@@ -18,8 +18,12 @@ body{
 }
 .navbtn{
   position: fixed;
+  display: none;
   top:10px;
-  left: 10px
+  left: 10px;
+  z-index: 6;
+  background-color: transparent;
+  border: 1px solid white
 }
 
 /* boostrap icons  */
@@ -71,14 +75,6 @@ hr{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .sideBar{
   
   height: 100vh;
@@ -95,7 +91,7 @@ hr{
   height: 100%;
   width: inherit;
   background-color: black;
-  opacity: 0.1;
+  opacity: 0.5;
   position: fixed;
   z-index: -1;
 }
@@ -112,6 +108,30 @@ a{
 li{
   margin: 2rem 0rem;
   list-style: none;
+}
+.responsive{
+  height: 100vh;
+  width: 100vw;
+  background-color: #282c34;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100vw);
+}
+.navBarContent{
+  width: 80vw;
+ /* border: 2px solid red; */
+}
+.navBarContent ul li{
+  text-align: center;
+  font-size: 1.5rem;
+}
+.navBarContent h2{
+  text-align: center;
+  font-size: 2rem
 }
 /* ____________HomePage_____________ */
 
@@ -198,9 +218,14 @@ li{
   
 }
 .trend-container{
+  width: 100% !important;
+  overflow-x: hidden;
   flex-wrap: wrap;
-  max-width: 100% !important;
-    overflow-x: hidden ;
+  justify-content: center;
+}
+
+.genreContainer{
+    overflow-x: scroll ;
 }
 .viewAll a{
   display: flex;
@@ -224,7 +249,11 @@ li{
 }
 .genreCard{
   background-color: rgba(0, 0, 0, 0.3);
+  background-size: 100% 100%;;
   height: 35vh;
+  min-width: 10rem;
+  padding: 0;
+  margin: 0.5rem 1rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -251,35 +280,10 @@ li{
     font-size: 1.5rem;
   }
 }
-@media only screen and (max-width: 1069px) {
-  .genresMainCard{
-    width: 20rem;
-  }
-  .movieImgText{
-    flex-direction:column;
-  }
-  .movieImageInnerLeft{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .sideBar > *{
-    width: 0vw;
-    display: none;
-  }
-  .trending,.genres,.home {
-    padding: 40px;
-    margin-left: 0vw;
-   
-  }
-  .home{
-    margin: auto;
-    width: auto;
-    height: auto;
-  }
+
   
   
-}
+
 @media only screen and (max-width: 870px) {
   .genresMainCard{
     width: 16rem;
@@ -293,6 +297,10 @@ li{
   .carousel-item img{
     height: 40vh;
   }
+  .trend-container{
+    justify-content: space-around399;
+  }
+  
 }
 .movieDetails img{
   width: 100%;
@@ -300,6 +308,7 @@ li{
 }
 .movieDetails{
   text-align: left;
+  overflow-x: hidden;
 }
 .movieDetails h1{
   font-family: 'Maven Pro', sans-serif;
@@ -318,8 +327,10 @@ li{
   flex-direction: row;
   margin-top: 2rem;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
+}
+.movieDetailsInner{
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .movieDetailsInner img{
   height: 20rem;
@@ -332,4 +343,70 @@ li{
 }
 .heading{
   font-weight: 600;
+}
+.avatar img{
+  height: 50px;
+  width: 50px;
+  border-radius: 2rem;
+}
+.movieDetailReview{
+  padding: 1rem;
+}
+.reviewContainer{
+  border: 2px solid white;
+  margin: 1rem;
+  padding: 1rem;
+  color: white;
+}
+.avatarAndUsername{
+  display: flex;
+  height: 50px;
+}
+@media only screen and (max-width: 1069px) {
+  .genresMainCard{
+    width: 20rem;
+  }
+  .movieImgText{
+    flex-direction:column;
+  }
+  .movieImageInnerLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sideBar > *{
+    width: 0vw;
+    display: none;
+  }
+  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise {
+    padding: 10px;
+    margin-left: 0vw;
+   
+  }
+  .movieDetails img{
+    height: 40vh;
+  }
+  .home{
+    margin: auto;
+    width: auto;
+    height: auto;
+    padding: 10px;
+  }
+  .navbtn{
+  position: fixed;
+  display: block;
+  top:10px;
+  left: 10px
+}
+.Trendcard,.genreCard{
+  height: 25vh;
+  min-width: 10rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+.avatar img{
+  height: 50px;
+  width: 50px;
+  border-radius: 2rem;
+}
 }

@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Spinner from './Spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link } from 'react-router-dom';
 
 export default function Genrewise(props) {
   let url = window.location.href
@@ -60,10 +61,10 @@ useEffect(() => {
                     </p>
                 }
             >
-                <div className='trend-container row d-flex align-items-center justify-content-center'>
+                <div className='trend-container d-flex align-items-center justify-content-center'>
                     {movieList.map((element, index) => {
-                        return <div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
-                        </div>
+                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                        </div></Link>
                     })}
                 </div>
             </InfiniteScroll>

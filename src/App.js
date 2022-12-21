@@ -8,23 +8,23 @@ import Genres from './Components/Genres';
 import Genrewise from './Components/Genrewise';
 import { useState } from 'react';
 import Moviedetails from './Components/Moviedetails';
+import Responsive from './Components/Responsive';
+import NavIcon from './Components/NavIcon';
 
 
 function App() {
-  const [genreid, setgenreid] = useState(0)
-  const handleGenreSelect=(e)=>{
-    console(e.target.value)
-    setgenreid(e.target.value)
-}
+
   return (
     <BrowserRouter>
+    <NavIcon />
       <Background />
       <Sidebar />
+      <Responsive />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/trending" element={<Trending />} />
-        <Route exact path="/genres" element={<Genres handleGenreSelect={handleGenreSelect}/>} />
-        <Route exact path="/genres/:no" element={<Genrewise/>} />
+        <Route exact path="/genres" element={<Genres />} />
+        <Route exact path="/genres/:no" element={<Genrewise />} />
         <Route exact path="/media/:no" element={<Moviedetails />} />
       </Routes>
     </BrowserRouter>

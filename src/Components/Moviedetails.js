@@ -9,13 +9,15 @@ export default function Moviedetails() {
     let [similarMovies, setSimilarMovies] = useState([])
     let [backgroundLink, setbackgroundLink] = useState("")
     let [Idarr, setIdarr] = useState([0])
+    let [reviews, setReviews] = useState([])
+
     extractMovieId(url) // function to extract movieID from URL
     let movieId = url.substring(url.length - count, url.length)
 
     // function to re-render the page when a user clicks on similar movies 
-    const handleReRender=()=>{
+    const handleReRender = () => {
         // changing Idarr[] so that useEffect runs again
-        setIdarr([Idarr[0]+1])
+        setIdarr([Idarr[0] + 1])
     }
     function extractMovieId(url) {
         for (let index = url.length - 1; index > 0; index--) {
@@ -39,11 +41,18 @@ export default function Moviedetails() {
         const jsonData = await response.json();
         setSimilarMovies(jsonData.results)
     }
+    const getMovieReviews = async (movieId) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=b3506838d86a0332b82e597ec8d36406&language=en-US`)
+        const jsonData = await response.json();
+        setReviews(jsonData.results)
+        // console.log(reviews)
+    }
 
     useEffect(() => {
         getMovieDetails(movieId)
         getSimilarMovies(movieId)
-    },Idarr)
+        getMovieReviews(movieId)
+    }, Idarr)
 
 
 
@@ -88,16 +97,40 @@ export default function Moviedetails() {
                         </div>
                     </div>
                     <div className='similarMovies my-4'>
-                        <h1 className='text-light fs-3'>Similar Movies</h1>
+                        <h1 className='text-light fs-3 px-2'>Similar Movies</h1>
                         <div className='trendContainer d-flex align-items-center justify-content-between'>
                             {similarMovies && similarMovies.map((element, index) => {
 
-                                return <Link to={`/media/${element.id}`}  onClick={handleReRender}><div className='Trendcard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                                return <Link to={`/media/${element.id}`} onClick={handleReRender}><div className='Trendcard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
                                 </div></Link>
 
                             })}
 
                         </div>
+                    </div>
+                    <div className='movieDetailReview'>
+                        <h1 className='text-light fs-3 px-2'>Reviews</h1>
+                        <div className='fs-5 mx-2 text-light'>{reviews && reviews.length===0?"No reviews available":""}</div>
+                        {reviews && reviews.map((element, index) => {
+
+                            return <div className='reviewContainer' key={index}>
+                            <div className='avatarAndUsername '>
+                                <div className='avatar'>
+                                    <img src={element.author_details.avatar_path==="undefined"?"https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fvector-images%2Fimage-not-available.html&psig=AOvVaw1GeejIFr2C6DQJfl-XePeb&ust=1671713262764000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjDvq7fivwCFQAAAAAdAAAAABAE":`https://image.tmdb.org/t/p/original${element.author_details.avatar_path}`}></img>
+                                </div>
+                                <div className='username mx-4 fw-bolder'>
+                                    {element.author_details.username}
+                                </div>
+                            </div>
+                            <div className='review my-4 '>
+                                {element.content}
+                            </div>
+                        </div>
+
+                        })}
+                        
+
+
                     </div>
                 </div>
 

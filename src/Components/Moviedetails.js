@@ -52,6 +52,7 @@ export default function Moviedetails() {
         getMovieDetails(movieId)
         getSimilarMovies(movieId)
         getMovieReviews(movieId)
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, Idarr)
 
 

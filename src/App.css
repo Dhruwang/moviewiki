@@ -409,4 +409,10 @@ li{
   width: 50px;
   border-radius: 2rem;
 }
+.searchBarDiv{
+  margin-top: 3rem;
+}
+.searchBar{
+  width: 75vw;
+}
 }

@@ -9,6 +9,7 @@ import Genrewise from './Components/Genrewise';
 import { useState } from 'react';
 import Moviedetails from './Components/Moviedetails';
 import Responsive from './Components/Responsive';
+import SearchResults from './Components/SearchResults';
 import NavIcon from './Components/NavIcon';
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/genres" element={<Genres />} />
         <Route exact path="/genres/:no" element={<Genrewise />} />
         <Route exact path="/media/:no" element={<Moviedetails />} />
+        <Route exact path="/search" element={<SearchResults />} />
       </Routes>
     </BrowserRouter>
   );

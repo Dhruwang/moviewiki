@@ -211,7 +211,7 @@ li{
   padding: 0;
 }
 
-.trendingMain,.genresMain,.genreWise,.movieDetails{
+.trendingMain,.genresMain,.genreWise,.movieDetails,.searchResults{
   text-align: center;
   margin-left: 20vw;
   padding: 40px;
@@ -378,7 +378,7 @@ li{
     width: 0vw;
     display: none;
   }
-  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise {
+  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise,.searchResults{
     padding: 10px;
     margin-left: 0vw;
    

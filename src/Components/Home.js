@@ -30,7 +30,7 @@ export default function Home() {
                 
                 <h1 className='text-light mt-4'>Welcome to MovieWiki</h1>
                 <div className='searchBarDiv m-2'>
-                    <input type="value" className='searchBar' placeholder='Search' />
+                    <Link to="/search"><input type="value" className='searchBar' placeholder='Search' /></Link>
                 </div>
 
                 <Carousel>

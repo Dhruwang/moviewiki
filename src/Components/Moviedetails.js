@@ -8,6 +8,7 @@ export default function Moviedetails() {
     let count = 0
     let [movieDetails, setMovieDetails] = useState({})
     let [similarMovies, setSimilarMovies] = useState([])
+    let [movieCast, setMovieCast] = useState([])
     let [backgroundLink, setbackgroundLink] = useState("")
     let [Idarr, setIdarr] = useState([0])
     let [reviews, setReviews] = useState([])
@@ -20,6 +21,12 @@ export default function Moviedetails() {
     const handleReRender = () => {
         // changing Idarr[] so that useEffect runs again
         setIdarr([Idarr[0] + 1])
+    }
+    const handleReadMore =()=>{
+        console.log("running")
+        let review = document.getElementById('review')
+        console.log(review.style.height)
+        review.style.height = " "
     }
     function extractMovieId(url) {
         for (let index = url.length - 1; index > 0; index--) {
@@ -43,6 +50,11 @@ export default function Moviedetails() {
         const jsonData = await response.json();
         setSimilarMovies(jsonData.results)
     }
+    const getCastDetails = async (movieId) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=b3506838d86a0332b82e597ec8d36406&language=en-US`)
+        const jsonData = await response.json();
+        setMovieCast(jsonData.cast)
+    }
     const getMovieReviews = async (movieId) => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=b3506838d86a0332b82e597ec8d36406&language=en-US`)
         const jsonData = await response.json();
@@ -65,6 +77,7 @@ export default function Moviedetails() {
         getSimilarMovies(movieId)
         getMovieReviews(movieId)
         getMovieTrailer(movieId)
+        getCastDetails(movieId)
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, Idarr)
 
@@ -75,16 +88,19 @@ export default function Moviedetails() {
             <Background backgroundLink={movieDetails.backdrop_path} />
             <div className='movieDetails'>
 
-                <img src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}></img>
-                <h1 className='text-white my-4'>{movieDetails.original_title}</h1>
+                <img className="backdrop" src={`https://image.tmdb.org/t/p/w780${movieDetails.backdrop_path}`}></img>
+                <h1 className=' text-white my-4 d=flex'>{movieDetails.original_title}</h1>
+                <div className='genreTagDiv'>
                 {(movieDetails.genres) && movieDetails.genres.map((element) => {
                     return <span className='genreTag '>{element.name}</span>
                 })}
+                </div>
+                
                 <div className='movieDetailsInner'>
                     <div className='movieImgText d-flex'>
 
                         <div className='movieImageInnerLeft'>
-                            <img classNme="movieImageInner" src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}></img>
+                            <img classNme="movieImageInner" src={`https://image.tmdb.org/t/p/w185${movieDetails.poster_path}`}></img>
                         </div>
                         <div className='movieDetailsText'>
                             <div className='details'>
@@ -113,12 +129,26 @@ export default function Moviedetails() {
                     <div className='trailerDiv'>
                     <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrialer}`} />
                     </div>
+                    <div className='cast my-4'>
+                        <h1 className='text-light fs-3 px-4'>Cast</h1>
+                        <div className='trendContainer d-flex align-items-center justify-content-between px-2'>
+                            {movieCast && movieCast.map((element, index) => {
+
+                                return <Link ><div className='Trendcard castCard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w185${element.profile_path})` }}>
+                                    <p className="castText">{element.original_name}<br></br>{element.character}</p>
+                                </div></Link>
+
+                            })}
+
+                        </div>
+
+                    </div>
                     <div className='similarMovies my-4'>
                         <h1 className='text-light fs-3 px-4'>Similar Movies</h1>
-                        <div className='trendContainer d-flex align-items-center justify-content-between px-4'>
+                        <div className='trendContainer d-flex align-items-center justify-content-between px-2'>
                             {similarMovies && similarMovies.map((element, index) => {
 
-                                return <Link to={`/media/${element.id}`} onClick={handleReRender}><div className='Trendcard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                                return <Link to={`/media/${element.id}`} onClick={handleReRender}><div className='Trendcard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w185${element.poster_path})` }}>
                                 </div></Link>
 
                             })}
@@ -134,16 +164,17 @@ export default function Moviedetails() {
                             return <div className='reviewContainer' key={index}>
                                 <div className='avatarAndUsername '>
                                     <div className='avatar'>
-                                        <img src={element.author_details.avatar_path === "undefined" ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fvector-images%2Fimage-not-available.html&psig=AOvVaw1GeejIFr2C6DQJfl-XePeb&ust=1671713262764000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjDvq7fivwCFQAAAAAdAAAAABAE" : `https://image.tmdb.org/t/p/original${element.author_details.avatar_path}`}></img>
+                                        <img src={element.author_details.avatar_path === "undefined" ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fvector-images%2Fimage-not-available.html&psig=AOvVaw1GeejIFr2C6DQJfl-XePeb&ust=1671713262764000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjDvq7fivwCFQAAAAAdAAAAABAE" : `https://image.tmdb.org/t/p/w300${element.author_details.avatar_path}`}></img>
                                     </div>
                                     <div className='username mx-4 fw-bolder'>
                                         {element.author_details.username}
                                     </div>
                                 </div>
-                                <div className='review my-4 '>
+                                <div className='review my-4 ' id='review'>
                                     {element.content}
                                 </div>
                             </div>
+                            
 
                         })}
 

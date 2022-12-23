@@ -63,7 +63,7 @@ useEffect(() => {
             >
                 <div className='trend-container d-flex align-items-center justify-content-center'>
                     {movieList.map((element, index) => {
-                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${element.poster_path})` }}>
                         </div></Link>
                     })}
                 </div>

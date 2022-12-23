@@ -7,7 +7,7 @@ export default function NavIcon() {
     }
   return (
     <div className='navbtnmain'>
-        <button className='navbtn' onClick={showHideNav} ><i class="bi bi-list text-light"></i></button>
+        <button className='navbtn' onClick={showHideNav} ><i class="bi bi-list text-light fs-1"></i></button>
     </div>
   )
 }

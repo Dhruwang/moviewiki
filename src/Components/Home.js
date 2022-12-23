@@ -28,7 +28,7 @@ export default function Home() {
         <>
             <div className='home'>
                 
-                <h1 className='text-light mt-4'>Welcome to MovieWiki</h1>
+                <h1 className='text-light mt-4'>MovieWiki</h1>
                 <div className='searchBarDiv m-2'>
                     <Link to="/search"><input type="value" className='searchBar' placeholder='Search' /></Link>
                 </div>
@@ -41,8 +41,8 @@ export default function Home() {
                             alt="Image One"
                         />
                         <Carousel.Caption>
-                            <h3>lightyear</h3>
-                            <p>Adventure</p>
+                            <h3>Avengers - Infinity war</h3>
+                            <p>Action</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={4000}>

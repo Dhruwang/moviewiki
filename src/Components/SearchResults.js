@@ -25,7 +25,7 @@ export default function SearchResults() {
                 <h1 className='my-4 text-light'>{searchValueArr && searchValueArr.length===0?"Search for movies,series ":""}</h1>
                 
                     {searchValueArr && searchValueArr.filter(element => element.poster_path!==null).map((element, index) => {
-                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
+                        return <Link to={`/media/${element.id}`}><div className='Trendcard col-lg-3 col-xl-2 col-md-5' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${element.poster_path})` }}>
                         </div></Link>
                     })}
                 </div>

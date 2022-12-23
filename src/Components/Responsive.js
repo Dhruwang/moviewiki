@@ -9,7 +9,7 @@ export default function Responsive() {
   return (
     <div className="responsive" id='responsive'>
       <div className='navBarContent' id='navBarContent'>
-        <h2 className='text-light'>MovieWiki</h2>
+        <Link to="/" onClick={showHideNav}><h2 className='text-light'>MovieWiki</h2></Link>
         <hr></hr>
         <ul className='px-0'>
           <li><i class="bi bi-search text-light"></i><Link to="/search" onClick={showHideNav}> Search</Link></li>

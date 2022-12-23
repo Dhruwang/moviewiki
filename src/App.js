@@ -6,7 +6,7 @@ import Home from './Components/Home';
 import Trending from './Components/Trending';
 import Genres from './Components/Genres';
 import Genrewise from './Components/Genrewise';
-import { useState } from 'react';
+
 import Moviedetails from './Components/Moviedetails';
 import Responsive from './Components/Responsive';
 import SearchResults from './Components/SearchResults';
@@ -17,6 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div className='app'>
     <NavIcon />
       <Background />
       <Sidebar />
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/media/:no" element={<Moviedetails />} />
         <Route exact path="/search" element={<SearchResults />} />
       </Routes>
+      </div>
     </BrowserRouter>
   );
 }

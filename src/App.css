@@ -1,8 +1,6 @@
-.App {
-  text-align: center;
-  overflow-x: hidden;
-}
+
 body{
+  padding-top: 2rem;
   margin: 0;
   padding: 0;
   border-color: black;
@@ -17,13 +15,14 @@ body{
   width: 20px;
 }
 .navbtn{
-  position: fixed;
+  position: absolute;
   display: none;
   top:10px;
   left: 10px;
   z-index: 6;
   background-color: transparent;
-  border: 1px solid white
+  border: 1px solid white;
+ 
 }
 
 /* boostrap icons  */
@@ -194,7 +193,7 @@ li{
   background-repeat: no-repeat;
   margin: 0.5rem 1rem;
   height: 35vh;
-  width: 10rem;
+  width: 12rem;
   /* border-radius: 1rem; */
   padding: 0;
 }
@@ -215,6 +214,7 @@ li{
   text-align: center;
   margin-left: 20vw;
   padding: 40px;
+  
   
 }
 .trend-container{
@@ -296,15 +296,7 @@ li{
     height: 60vh;
   }
 }
-@media only screen and (max-width: 570px) {
-  .carousel-item img{
-    height: 40vh;
-  }
-  .trend-container{
-    justify-content: space-around399;
-  }
-  
-}
+
 .movieDetails img{
   width: 100%;
   height: 80vh;
@@ -355,6 +347,7 @@ li{
   width: 100% !important;
   height: 75vh !important;
 }
+
 .heading{
   /* margin-left: 1rem; */
   font-weight: 600;
@@ -427,7 +420,28 @@ li{
 .searchBarDiv{
   margin-top: 3rem;
 }
+.movieDetails{
+  padding-top: 3rem;
+}
 .searchBar{
   width: 75vw;
 }
+.trailerDiv > div{
+  width: 100% !important;
+  height: 50vh !important;
+}
+
+}
+@media only screen and (max-width: 570px) {
+  .carousel-item img{
+    height: 40vh;
+  }
+  .trend-container{
+    justify-content: space-around399;
+  }
+  .trailerDiv > div{
+    width: 100% !important;
+    height: 30vh !important;
+  }
+  
 }

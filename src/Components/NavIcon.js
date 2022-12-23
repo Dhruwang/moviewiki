@@ -6,7 +6,7 @@ export default function NavIcon() {
         responsive.style.transform=(responsive.style.transform==="translateX(-100vw)"?"translateX(0vw)":"translateX(-100vw)");
     }
   return (
-    <div>
+    <div className='navbtnmain'>
         <button className='navbtn' onClick={showHideNav} ><i class="bi bi-list text-light"></i></button>
     </div>
   )

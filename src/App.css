@@ -488,8 +488,8 @@ li{
     height: 30vh !important;
   }
   .Trendcard,.genreCard,.castCard{
-    height: 30vh;
-    width: 10rem;
+    height: 23vh;
+    width:7rem;
     
   }
   .backdrop{
@@ -515,5 +515,8 @@ li{
 }
 .review{
   font-size: 0.8rem;
+}
+.castText{
+  font-size: 0.5rem;
 }
 }

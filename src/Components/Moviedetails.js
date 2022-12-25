@@ -13,6 +13,7 @@ export default function Moviedetails() {
     let [Idarr, setIdarr] = useState([0])
     let [reviews, setReviews] = useState([])
     let [movieTrialer,setMovieTrailer] = useState("")
+    let [watchProviders,setWatchProviders] = useState([])
 
     extractMovieId(url) // function to extract movieID from URL
     let movieId = url.substring(url.length - count, url.length)
@@ -71,6 +72,12 @@ export default function Moviedetails() {
         });
 
     }
+    const getWatchProviders = async (movieId) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=b3506838d86a0332b82e597ec8d36406`)
+        const jsonData = await response.json();
+        setWatchProviders(jsonData.results.IN.rent)
+        // console.log(jsonData.results.IN.flatrate)
+    }
 
     useEffect(() => {
         getMovieDetails(movieId)
@@ -78,6 +85,7 @@ export default function Moviedetails() {
         getMovieReviews(movieId)
         getMovieTrailer(movieId)
         getCastDetails(movieId)
+        getWatchProviders(movieId)
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, Idarr)
 
@@ -137,6 +145,20 @@ export default function Moviedetails() {
                                 return <Link ><div className='Trendcard castCard col-md-2' key={index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w185${element.profile_path})` }}>
                                     <p className="castText">{element.original_name}<br></br>{element.character}</p>
                                 </div></Link>
+
+                            })}
+
+                        </div>
+
+                    </div>
+                    <div className='cast my-4'>
+                        <h1 className='text-light fs-3 px-4'>Available on</h1>
+                        <div className=' d-flex px-2'>
+                            {watchProviders && watchProviders.map((element, index) => {
+                                console.log(element)
+                                return <div className='mx-2' key={index} >
+                                   <img src={`https://image.tmdb.org/t/p/original${element.logo_path}`}></img>
+                                </div>
 
                             })}
 

@@ -1,6 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
 export default function Sidebar() {
+  const Navigate = useNavigate()
+  const Logout=()=>{
+    localStorage.removeItem('token')
+    Navigate("/login")
+  }
   return (
     <div className='sideBar' id='sideBar'>
       <div className='darkback'></div>
@@ -21,7 +27,8 @@ export default function Sidebar() {
           </ul>
           <hr></hr>
         </div>
-        <Link to="/login"><h5 className='align-self-end m-4'>Login / Signup</h5></Link>
+        {localStorage.getItem('token')?<button onClick={Logout} className='align-self-end m-4 logoutbtn'><i class="bi bi-arrow-bar-left"></i> Logout</button>:<Link to="/login"><h5 className='align-self-end m-4'>Login / Signup</h5></Link>}
+        
       </div>
     </div>
   )

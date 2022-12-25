@@ -153,7 +153,7 @@ export default function Moviedetails() {
                     </div>
                     <div className='cast my-4'>
                         <h1 className='text-light fs-3 px-4'>Available on</h1>
-                        <div className=' d-flex px-2'>
+                        <div className='trendContainer d-flex px-2'>
                             {watchProviders && watchProviders.map((element, index) => {
                                 console.log(element)
                                 return <div className='mx-2' key={index} >

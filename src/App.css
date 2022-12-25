@@ -108,6 +108,11 @@ hr{
 .sideBar ul li:hover{
   transform: scale(1.1);
 }
+.logoutbtn{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
 a{
   text-decoration: none;
   color: azure;
@@ -375,6 +380,9 @@ li{
     margin: 1rem 0.1rem;
     font-size: 1.5rem;
   }
+  .loginDiv{
+    width: 50vw;
+  }
 }
 
   
@@ -491,7 +499,7 @@ li{
     width: 0vw;
     display: none;
   }
-  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise,.searchResults{
+  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise,.searchResults,.loginMain{
     padding: 10px;
     margin-left: 0vw;
    
@@ -528,6 +536,10 @@ li{
 .trailerDiv > div{
   width: 100% !important;
   height: 50vh !important;
+}
+.loginDiv{
+  width: 60vw;
+  
 }
 
 }
@@ -576,6 +588,13 @@ li{
 }
 .movieDetailsText{
   font-size: 0.8rem;
+}
+.loginMain{
+  overflow-y: hidden;
+}
+.loginDiv{
+  width: 80vw;
+  
 }
 }
 @media only screen and (max-width: 500px){

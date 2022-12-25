@@ -35,25 +35,25 @@ export default function Home() {
 
                 <Carousel>
                     <Carousel.Item interval={4000}>
-                        <img
+                        <Link to="/media/674324"><img
                             className="d-block w-100"
-                            src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersinfinitywar_lob_mas_hlf_01_3.jpg"
+                            src="https://image.tmdb.org/t/p/w780/9Md4CqzUGDtK5oEkRRvozLkGc9d.jpg"
                             alt="Image One"
-                        />
+                        /></Link>
                         <Carousel.Caption>
-                            <h3>Avengers - Infinity war</h3>
-                            <p>Action</p>
+                            <h3>The Banshees of Inisherin</h3>
+                            <p>Drama</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={4000}>
-                        <img
+                        <Link to="media/715931"><img
                             className="d-block w-100"
-                            src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2022/06/lightyear-movie-review-out-02.jpg"
+                            src="https://image.tmdb.org/t/p/w780/ypFD4TJ3nLJesou76V59CnweaT0.jpg"
                             alt="Image Two"
-                        />
+                        /></Link>
                         <Carousel.Caption>
-                            <h3>lightyear</h3>
-                            <p>Adventure</p>
+                            <h3>Emancipation</h3>
+                            <p>History</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

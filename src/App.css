@@ -510,7 +510,7 @@ li{
   left: 10px
 }
 .Trendcard,.genreCard{
-  height: 25vh;
+  height: 35vh;
   width: 10rem;
   min-width: 6rem;
   margin: 0.5rem;
@@ -577,4 +577,25 @@ li{
 .movieDetailsText{
   font-size: 0.8rem;
 }
+}
+@media only screen and (max-width: 500px){
+  .Trendcard,.genreCard,.castCard{
+    height: 35vh;
+    width:10rem;
+    
+  }
+}
+@media only screen and (max-width: 462px){
+  .Trendcard,.genreCard,.castCard{
+    height: 30vh;
+    width:8rem;
+    
+  }
+}
+@media only screen and (max-width: 380px){
+  .Trendcard,.genreCard,.castCard{
+    height: 25vh;
+    width:6rem;
+    
+  }
 }

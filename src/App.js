@@ -11,6 +11,8 @@ import Moviedetails from './Components/Moviedetails';
 import Responsive from './Components/Responsive';
 import SearchResults from './Components/SearchResults';
 import NavIcon from './Components/NavIcon';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       <Responsive />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/trending" element={<Trending />} />
         <Route exact path="/genres" element={<Genres />} />
         <Route exact path="/genres/:no" element={<Genrewise />} />

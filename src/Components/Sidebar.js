@@ -21,7 +21,7 @@ export default function Sidebar() {
           </ul>
           <hr></hr>
         </div>
-        <Link to="/logout"><h5 className='align-self-end m-4'> <i class="bi bi-box-arrow-in-left"></i> Logout</h5></Link>
+        <Link to="/login"><h5 className='align-self-end m-4'>Login / Signup</h5></Link>
       </div>
     </div>
   )

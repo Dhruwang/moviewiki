@@ -6,16 +6,18 @@ import Home from './Components/Home';
 import Trending from './Components/Trending';
 import Genres from './Components/Genres';
 import Genrewise from './Components/Genrewise';
-
 import Moviedetails from './Components/Moviedetails';
 import Responsive from './Components/Responsive';
 import SearchResults from './Components/SearchResults';
 import NavIcon from './Components/NavIcon';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import { useState } from 'react';
 
 
 function App() {
+
+  const [favourites, setfavourites] = useState([])
 
   return (
     <BrowserRouter>

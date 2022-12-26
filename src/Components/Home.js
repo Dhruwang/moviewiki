@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
+import Card from './Card';
 
 export default function Home() {
     const [trending, setTrending] = useState([])
@@ -64,8 +65,7 @@ export default function Home() {
                     {trending.map((element, index) => {
                         
                         while (index < 4) {
-                            return <Link to={`/media/${element.id}`}><div className='Trendcard ' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${element.poster_path})` }}>
-                            </div></Link>
+                            return  <Card id={element.id} poster_path={element.poster_path} index={index}/>
                         }
 
                     })}

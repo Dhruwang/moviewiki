@@ -205,14 +205,35 @@ li{
  
 }
  .Trendcard{
+
+  text-align: end;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   margin: 0.5rem 1rem;
   height: 35vh;
   width: 10rem;
   /* border-radius: 1rem; */
-  padding: 0;
+  padding: 0.5rem;
   transition: all 0.2s ease-in-out;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+.likebtn{
+  text-align: end;
+  background-color: transparent;
+  border: none;
+
+}
+.Trendcard a{
+  height: 80%;
+}
+.click{
+  height: 80%;
+  width: 100%;
+  pointer-events: none;
+  /* border: 2px solid white; */
 }
 .Trendcard:hover{
   background-size: 110% 110%;

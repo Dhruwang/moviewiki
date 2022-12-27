@@ -633,21 +633,42 @@ li{
 @media only screen and (max-width: 500px){
   .Trendcard,.genreCard,.castCard{
     height: 35vh;
-    width:10rem;
+    width:12rem;
     
   }
 }
 @media only screen and (max-width: 462px){
   .Trendcard,.genreCard,.castCard{
+    height: 33vh;
+    width:11rem;
+    
+  }
+}
+@media only screen and (max-width: 410px){
+  .Trendcard,.genreCard,.castCard{
     height: 30vh;
+    width:10rem;
+    
+  }
+}
+@media only screen and (max-width: 370px){
+  .Trendcard,.genreCard,.castCard{
+    height: 25vh;
     width:8rem;
     
   }
 }
-@media only screen and (max-width: 380px){
+@media only screen and (max-width: 310px){
   .Trendcard,.genreCard,.castCard{
-    height: 25vh;
-    width:6rem;
+    height: 22vh;
+    width:7rem;
+    
+  }
+}
+@media only screen and (max-width: 280px){
+  .Trendcard,.genreCard,.castCard{
+    height: 35vh;
+    width:80vw;
     
   }
 }

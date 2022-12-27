@@ -37,7 +37,6 @@ function App() {
     <BrowserRouter>
     <div className='app'>
     <NavIcon />
-    <Alert />
       <Background />
       <Sidebar />
       <Responsive />

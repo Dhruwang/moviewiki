@@ -23,7 +23,7 @@ export default function Sidebar() {
             <li><i class="bi bi-lightning "></i> <Link to="/trending"> Trending</Link></li>
             <li><i class="bi bi-camera-reels "></i><Link to="/genres"> Genres</Link></li>
             <li><i class="bi bi-collection-play "></i><Link> Series</Link></li>
-            <li><i class="bi bi-heart "></i><Link> Favourites</Link></li>
+            <li><i class="bi bi-heart "></i><Link to="/favourites"> Favourites</Link></li>
           </ul>
           <hr></hr>
         </div>

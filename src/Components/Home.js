@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 import Card from './Card';
 
-export default function Home() {
+export default function Home(props) {
     const [trending, setTrending] = useState([])
     const [genres, setGenres] = useState([])
+    const [favMovieId,setFavMovieId] = useState([])
+    const host = 'http://localhost:5000'
+
+
 
     const getTrendingMovies = async () => {
         const response = await fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=b3506838d86a0332b82e597ec8d36406");
@@ -18,12 +22,27 @@ export default function Home() {
         const jsonData = await response.json();
         setGenres(jsonData.genres)
     };
+    const getFavMovieId = async () => {
+        if(localStorage.getItem('token')){
+            const response = await fetch(`${host}/api/auth/favMovieId`, {
+              method: 'GET', // *GET, POST, PUT, DELETE, etc.
+              headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token')
+              },
+            });
+            const jsonData = await response.json()
+            setFavMovieId(jsonData)
+            
+        }
+      }
 
 
 
     useEffect(() => {
         getTrendingMovies()
         getGenres()
+        getFavMovieId()
     }, [])
     return (
         <>
@@ -65,7 +84,7 @@ export default function Home() {
                     {trending.map((element, index) => {
                         
                         while (index < 4) {
-                            return  <Card id={element.id} poster_path={element.poster_path} index={index}/>
+                            return  <Card id={element.id} poster_path={element.poster_path} index={index} showAlert={props.showAlert}  heartFill={favMovieId.includes(element.id)?"-fill":""}/>
                         }
 
                     })}

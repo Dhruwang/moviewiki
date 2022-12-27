@@ -9,6 +9,23 @@ export default function Trending() {
     const [trending, setTrending] = useState([])
     let [page, setpage] = useState(1)
     const [filter,setFilter] = useState(['all','day'])
+    const [favMovieId,setFavMovieId] = useState([])
+    const host = 'http://localhost:5000'
+
+
+    const getFavMovieId = async () => {
+        const response = await fetch(`${host}/api/auth/favMovieId`, {
+          method: 'GET', // *GET, POST, PUT, DELETE, etc.
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+          },
+        });
+        const jsonData = await response.json()
+        console.log(jsonData)
+        setFavMovieId(jsonData)
+      }
+
 
     const getMoreTrendingMovies = async () => {
         if (trending.length === 0) {
@@ -30,6 +47,7 @@ export default function Trending() {
     
     useEffect(() => {
         getTrendingMovies()
+        getFavMovieId()
     }, [filter])
 
     const handleTypeFilter = (e)=>{
@@ -91,7 +109,7 @@ export default function Trending() {
             >
                 <div className='trend-container d-flex align-items-center'>
                     {trending.map((element, index) => {
-                        return <Card id={element.id} poster_path={element.poster_path} index={index}/>
+                        return <Card id={element.id} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
                     })}
                 </div>
             </InfiniteScroll>

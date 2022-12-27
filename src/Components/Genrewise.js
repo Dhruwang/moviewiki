@@ -11,6 +11,23 @@ export default function Genrewise(props) {
   const [movieList, setmovieList] = useState([])
   extractGenreId(url)
   let genreId = url.substring(url.length-count,url.length)
+  const [favMovieId,setFavMovieId] = useState([])
+  const host = 'http://localhost:5000'
+
+  const getFavMovieId = async () => {
+    if(localStorage.getItem('token')){
+      const response = await fetch(`${host}/api/auth/favMovieId`, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+      });
+      const jsonData = await response.json()
+      console.log(jsonData)
+      setFavMovieId(jsonData)
+    }
+  }
 
   const getMoreGenreMovies = async (genreId) => {
     if (movieList.length === 0) {
@@ -33,7 +50,7 @@ const getGenreMovies = async (genreId) => {
 
 useEffect(() => {
     getGenreMovies(genreId)
-    console.log(genreId)
+    getFavMovieId()
 }, [])
 
 // Function to extract genre id from URL 
@@ -62,9 +79,9 @@ useEffect(() => {
                     </p>
                 }
             >
-                <div className='trend-container d-flex align-items-center justify-content-between'>
+                <div className='trend-container d-flex align-items-center justify-content-center'>
                     {movieList.map((element, index) => {
-                        return  <Card id={element.id} poster_path={element.poster_path} index={index}/>
+                        return  <Card id={element.id} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
                     })}
                 </div>
             </InfiniteScroll>

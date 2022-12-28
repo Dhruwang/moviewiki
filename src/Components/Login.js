@@ -1,11 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login(props) {
     const host = 'http://localhost:5000'
     const [credentials, setcredentials] = useState({email:"",password:""})
     const Navigate = useNavigate()
 
+    // window.location.reload()
     const goToSignup=()=>{
         Navigate("/signup")
     }
@@ -24,15 +25,22 @@ export default function Login() {
           const json = await response.json()
           console.log(json)
           if(json.success){
-            // save authToken and redirect 
+            props.showAlert("success", "Logged in")
             localStorage.setItem('token',json.token)
             Navigate("/")
+          }
+          else{
+            props.showAlert("danger", "Invalid credentials")
           }
     }
 
     const onChange = (event) => {
         setcredentials({ ...credentials, [event.target.name]: event.target.value })
       }
+      useEffect(() => {
+    //    window.location.reload()
+      },[])
+      
 
     return (
         <div className='loginMain'>

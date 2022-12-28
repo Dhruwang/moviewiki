@@ -15,6 +15,7 @@ import Signup from './Components/Signup';
 import { useState } from 'react';
 import Favourites from './Components/Favourites';
 import  Alert  from './Components/Alert';
+import Aisearch from "./Components/Aisearch"
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Route exact path="/media/:no" element={<Moviedetails showAlert={showAlert}/>} />
         <Route exact path="/search" element={<SearchResults showAlert={showAlert}/>} />
         <Route exact path="/favourites" element={<Favourites showAlert={showAlert}/>} />
+        <Route exact path="/aisearch" element={<Aisearch showAlert={showAlert}/>} />
       </Routes>
       </div>
     </BrowserRouter>

@@ -97,6 +97,12 @@ hr{
   font-family: 'Poppins', sans-serif;
   
 }
+.userandlogin{
+  text-align: center;
+  /* margin-left: 1.5rem; */
+  display: flex;
+  flex-direction: column;
+}
 .darkback{
   /* border: 3px solid green; */
   height: 100%;
@@ -119,6 +125,7 @@ hr{
   transform: scale(1.1);
 }
 .logoutbtn{
+  text-align: start;
   background-color: transparent;
   border: none;
   color: white;
@@ -168,9 +175,11 @@ li{
   align-items: center;
   flex-direction: column;
 }
+
 .home h1{
   font-family: 'Maven Pro', sans-serif;
 }
+
 .searchBar{
   height: 2rem;
   width: 40vw; 
@@ -263,7 +272,7 @@ li{
   padding: 0;
 }
 
-.trendingMain,.genresMain,.genreWise,.movieDetails,.searchResults,.loginMain,.favouritesMain{
+.trendingMain,.genresMain,.genreWise,.movieDetails,.searchResults,.loginMain,.favouritesMain,.username{
   text-align: center;
   margin-left: 20vw;
   padding: 40px;

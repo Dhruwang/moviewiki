@@ -11,7 +11,6 @@ export default function Home(props) {
     const host = 'http://localhost:5000'
 
 
-
     const getTrendingMovies = async () => {
         const response = await fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=b3506838d86a0332b82e597ec8d36406");
         const jsonData = await response.json();

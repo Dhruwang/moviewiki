@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Sidebar() {
@@ -6,7 +6,32 @@ export default function Sidebar() {
   const Logout=()=>{
     localStorage.removeItem('token')
     Navigate("/login")
+    window.location.reload()
+    
   }
+  const host = 'http://localhost:5000'
+    const [username, setusername] = useState("")
+
+    const getUserName= async ()=>{
+      if(localStorage.getItem('token')){
+        const response = await fetch(`${host}/api/auth/getusername`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            "auth-token" :localStorage.getItem('token')
+          },
+  
+        });
+        const text = await response.text()
+          setusername(text)
+      }
+             
+    }
+    useEffect(() => {
+      getUserName()
+      
+    }, [])
+    
   return (
     <div className='sideBar' id='sideBar'>
       <div className='darkback'></div>
@@ -27,8 +52,10 @@ export default function Sidebar() {
           </ul>
           <hr></hr>
         </div>
-        {localStorage.getItem('token')?<button onClick={Logout} className='align-self-end m-4 logoutbtn'><i class="bi bi-arrow-bar-left"></i> Logout</button>:<Link to="/login"><h5 className='align-self-end m-4'>Login / Signup</h5></Link>}
-        
+        <div className='userandlogin'>
+        <h4 className='mb-4'>{username}</h4>
+        {localStorage.getItem('token')?<button onClick={Logout} className='logoutbtn'><i class="bi bi-arrow-bar-left"></i> Logout</button>:<Link to="/login"><h5 className='align-self-end'>Login / Signup</h5></Link>}
+        </div>
       </div>
     </div>
   )

@@ -18,7 +18,8 @@ import  Alert  from './Components/Alert';
 
 
 function App() {
-  const [alert, setAlert] = useState(null)
+  let [alert, setAlert] = useState(null)
+
   const showAlert = (type,message)=>{
     console.log("running")
     setAlert({
@@ -40,6 +41,7 @@ function App() {
       <Background />
       <Sidebar />
       <Responsive />
+      <Alert alert = {alert}  />
       <Routes>
         <Route exact path="/" element={<Home showAlert={showAlert}/>} />
         <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
@@ -48,7 +50,7 @@ function App() {
         <Route exact path="/genres" element={<Genres showAlert={showAlert}/>} />
         <Route exact path="/genres/:no" element={<Genrewise showAlert={showAlert}/>} />
         <Route exact path="/media/:no" element={<Moviedetails showAlert={showAlert}/>} />
-        <Route exact path="/search" element={<SearchResults />} />
+        <Route exact path="/search" element={<SearchResults showAlert={showAlert}/>} />
         <Route exact path="/favourites" element={<Favourites showAlert={showAlert}/>} />
       </Routes>
       </div>

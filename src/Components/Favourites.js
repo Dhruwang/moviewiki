@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import Card from './Card'
 
-export default function Favourites() {
+export default function Favourites(props) {
     const [favourites, setfavourites] = useState([])
     const [favMovieId,setFavMovieId] = useState([])
     const host = 'http://localhost:5000'
@@ -49,7 +49,7 @@ export default function Favourites() {
         <div className='trend-container d-flex align-items-center'>
           <h3>{favourites.length === 0 ? (localStorage.getItem('token')?"No Favourites added":"Please Login/Signup to add Favourites"):""}</h3>
         {favourites.map((element, index) => {
-                        return <Card id={element[0]} poster_path={element[1]} heartFill={favMovieId.includes(element[0])?"-fill":""} index={index}/>
+                        return <Card id={element[0]} showAlert={props.showAlert} poster_path={element[1]} heartFill={favMovieId.includes(element[0])?"-fill":""} index={index}/>
                     })}
                 </div>
     </div>

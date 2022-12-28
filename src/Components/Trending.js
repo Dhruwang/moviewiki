@@ -5,7 +5,7 @@ import Spinner from './Spinner';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 
-export default function Trending() {
+export default function Trending(props) {
     const [trending, setTrending] = useState([])
     let [page, setpage] = useState(1)
     const [filter,setFilter] = useState(['all','day'])
@@ -22,7 +22,6 @@ export default function Trending() {
           },
         });
         const jsonData = await response.json()
-        console.log(jsonData)
         setFavMovieId(jsonData)
       }
 
@@ -109,7 +108,7 @@ export default function Trending() {
             >
                 <div className='trend-container d-flex align-items-center'>
                     {trending.map((element, index) => {
-                        return <Card id={element.id} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
+                        return <Card id={element.id} showAlert={props.showAlert} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
                     })}
                 </div>
             </InfiniteScroll>

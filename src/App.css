@@ -15,8 +15,13 @@ body{
 }
 .alertMain{
   position: fixed;
-z-index: 10;
+z-index: 100;
 width: 100vw;
+}
+.alert{
+  padding-top: 1rem;
+  opacity: 0.8;
+  /* background-color: rgba(208, 208, 208, 0.648); */
 }
 ::-webkit-scrollbar {
   width: 20px;
@@ -278,6 +283,8 @@ li{
 .viewAll a{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .prevNext button{
   background:none;
@@ -532,7 +539,7 @@ li{
     width: 0vw;
     display: none;
   }
-  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise,.searchResults,.loginMain{
+  .trending,.genres,.home,.trendingMain,.movieDetails,.genresMain,.genreWise,.searchResults,.loginMain,.favouritesMain{
     padding: 10px;
     margin-left: 0vw;
    

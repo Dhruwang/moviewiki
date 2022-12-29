@@ -38,7 +38,6 @@ export default function Login(props) {
         setcredentials({ ...credentials, [event.target.name]: event.target.value })
       }
       useEffect(() => {
-    //    window.location.reload()
       },[])
       
 

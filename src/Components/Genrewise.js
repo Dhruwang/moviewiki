@@ -81,7 +81,7 @@ useEffect(() => {
             >
                 <div className='trend-container d-flex align-items-center justify-content-center'>
                     {movieList.map((element, index) => {
-                        return  <Card id={element.id} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
+                        return  <Card id={element.id} showAlert={props.showAlert} poster_path={element.poster_path} index={index} heartFill={favMovieId.includes(element.id)?"-fill":""}/>
                     })}
                 </div>
             </InfiniteScroll>

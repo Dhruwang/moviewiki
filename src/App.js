@@ -12,7 +12,7 @@ import SearchResults from './Components/SearchResults';
 import NavIcon from './Components/NavIcon';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Favourites from './Components/Favourites';
 import  Alert  from './Components/Alert';
 import Aisearch from "./Components/Aisearch"
@@ -20,6 +20,24 @@ import Aisearch from "./Components/Aisearch"
 
 function App() {
   let [alert, setAlert] = useState(null)
+  const [username, setusername] = useState("")
+    const host = 'http://localhost:5000'
+
+  const getUserName= async ()=>{
+    if(localStorage.getItem('token')){
+      const response = await fetch(`${host}/api/auth/getusername`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          "auth-token" :localStorage.getItem('token')
+        },
+
+      });
+      const text = await response.text()
+        setusername(text)
+    }
+           
+  }
 
   const showAlert = (type,message)=>{
     console.log("running")
@@ -32,6 +50,10 @@ function App() {
     }, 2000);
     
   }
+  useEffect(() => {
+    getUserName()
+  }, [])
+  
 
 
 
@@ -40,11 +62,11 @@ function App() {
     <div className='app'>
     <NavIcon />
       <Background />
-      <Sidebar />
+      <Sidebar username={username} />
       <Responsive />
       <Alert alert = {alert}  />
       <Routes>
-        <Route exact path="/" element={<Home showAlert={showAlert}/>} />
+        <Route exact path="/" element={<Home getUserName={getUserName} showAlert={showAlert}/>} />
         <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
         <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
         <Route exact path="/trending" element={<Trending showAlert={showAlert}/>} />

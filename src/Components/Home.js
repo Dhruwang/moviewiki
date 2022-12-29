@@ -7,9 +7,28 @@ import Card from './Card';
 export default function Home(props) {
     const [trending, setTrending] = useState([])
     const [genres, setGenres] = useState([])
-    const [favMovieId,setFavMovieId] = useState([])
+    const [favMovieId, setFavMovieId] = useState([])
+    const [username, setusername] = useState("")
+    const [gravatar, setgravatar] = useState("")
     const host = 'http://localhost:5000'
+ 
 
+    const getUserName = async () => {
+        if (localStorage.getItem('token')) {
+            const response = await fetch(`${host}/api/auth/getusername`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token')
+                },
+
+            });
+            const json = await response.json()
+            setusername(json.username)
+            setgravatar(json.email)
+        }
+
+    }
 
     const getTrendingMovies = async () => {
         const response = await fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=b3506838d86a0332b82e597ec8d36406");
@@ -22,19 +41,19 @@ export default function Home(props) {
         setGenres(jsonData.genres)
     };
     const getFavMovieId = async () => {
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
             const response = await fetch(`${host}/api/auth/favMovieId`, {
-              method: 'GET', // *GET, POST, PUT, DELETE, etc.
-              headers: {
-                'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
-              },
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem('token')
+                },
             });
             const jsonData = await response.json()
             setFavMovieId(jsonData)
-            
+
         }
-      }
+    }
 
 
 
@@ -42,12 +61,17 @@ export default function Home(props) {
         getTrendingMovies()
         getGenres()
         getFavMovieId()
+        getUserName()
     }, [])
     return (
         <>
             <div className='home'>
+                <div className='username'>
+                    <div className='userAvatar'>{username[0]}</div>
+                <h3 className=' text-light fs-5'>&nbsp; &nbsp;{username}</h3>
+                </div>
                 
-                <h1 className='text-light mt-4'>MovieWiki</h1>
+                <h1 className='text-light'>MovieWiki</h1>
                 <div className='searchBarDiv m-2'>
                     <Link to="/search"><input type="value" className='searchBar' placeholder='Search' /></Link>
                 </div>
@@ -81,9 +105,9 @@ export default function Home(props) {
                 <h2 className='mb-4'>Trending</h2>
                 <div className='trendContainer d-flex align-items-center justify-content-between'>
                     {trending.map((element, index) => {
-                        
+
                         while (index < 4) {
-                            return  <Card id={element.id} poster_path={element.poster_path} index={index} showAlert={props.showAlert}  heartFill={favMovieId.includes(element.id)?"-fill":""}/>
+                            return <Card id={element.id} poster_path={element.poster_path} index={index} showAlert={props.showAlert} heartFill={favMovieId.includes(element.id) ? "-fill" : ""} />
                         }
 
                     })}
@@ -100,7 +124,7 @@ export default function Home(props) {
             <div className='genres'>
                 <h2 className='mb-4'>Genres</h2>
                 <div className='genreContainer d-flex align-items-center justify-content-between'>
-                     {genres.map((element, index) => {
+                    {genres.map((element, index) => {
                         while (index < 4) {
                             return <Link to={`/genres/${element.id}`}><div className='genreCard' key={index}>
                                 {element.name}

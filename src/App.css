@@ -162,6 +162,11 @@ li{
   text-align: center;
   font-size: 2rem
 }
+.navBarContent button{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
 /* ____________HomePage_____________ */
 
 .home{
@@ -185,17 +190,20 @@ li{
   align-items: center;
   justify-content: center;
 }
+.username h3{
+  margin:0
+}
+.username a{
+  display: none;
+}
 .userAvatar{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 2rem; */
-  /* width: 2rem; */
   border-radius: 2rem;
-  padding: 0.2rem 1rem;
-  /* border: 1px solid red; */
+  padding: 0.2rem 0.8rem;
   text-align: center;
   background-color: white;
 }
@@ -580,6 +588,9 @@ li{
     height: auto;
     padding: 10px;
   }
+  .username a{
+    display: block;
+  }
   .navbtn{
   position: fixed;
   display: block;
@@ -664,6 +675,14 @@ li{
 .loginDiv{
   width: 80vw;
   
+}
+.userAvatar{
+  font-size: 0.8rem;
+  padding: 0.1rem 0.6rem;
+}
+.username h3{
+  font-size: 1rem;
+  margin: 0;
 }
 }
 @media only screen and (max-width: 500px){

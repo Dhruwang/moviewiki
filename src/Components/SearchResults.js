@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import { Link } from 'react-router-dom'
 import Card from './Card'
 
 export default function SearchResults(props) {

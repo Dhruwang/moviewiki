@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import "../App.css"
 import Spinner from './Spinner';
-import { Link } from 'react-router-dom';
 import Card from './Card';
 
 export default function Trending(props) {
@@ -74,7 +73,7 @@ export default function Trending(props) {
             <hr></hr>
             <div className='dropDowns  d-flex'>
                 <div class="dropdown show ">
-                    <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle"   role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {filter[0]==='tv'?'series':filter[0]}
                     </a>
 

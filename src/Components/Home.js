@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
-import Responsive from './Responsive';
 import Card from './Card';
 
 export default function Home(props) {
@@ -9,7 +8,6 @@ export default function Home(props) {
     const [genres, setGenres] = useState([])
     const [favMovieId, setFavMovieId] = useState([])
     const [username, setusername] = useState("")
-    const [gravatar, setgravatar] = useState("")
     const host = 'https://moviewikiapi.onrender.com'
  
 
@@ -25,7 +23,6 @@ export default function Home(props) {
             });
             const json = await response.json()
             setusername(json.username)
-            setgravatar(json.email)
         }
 
     }
@@ -66,10 +63,13 @@ export default function Home(props) {
     return (
         <>
             <div className='home'>
-                <div className='username'>
-                    <div className='userAvatar'>{username[0]}</div>
-                <h3 className=' text-light fs-5'>&nbsp; &nbsp;{username}</h3>
+               
+                    <div className='username'>
+                    <div className={`userAvatar ${localStorage.getItem('token')?"":"d-none"}`}>{username[0]}</div>
+                <h3 className= {`text-light ${localStorage.getItem("token")?"":"d-none"}`}>&nbsp;{username}</h3>
+                <Link to="/login" className={`${localStorage.getItem('token')?"d-none":""}`}>Login/Signup</Link>
                 </div>
+                
                 
                 <h1 className='text-light'>MovieWiki</h1>
                 <div className='searchBarDiv m-2'>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Card(props) {
   const like = useRef()
-  const host = 'http://localhost:5000'
+  const host = 'https://moviewikiapi.onrender.com'
   const [active, setactive] = useState('')
   const [favMovieId,setFavMovieId] = useState([])
 

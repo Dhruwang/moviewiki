@@ -6,7 +6,7 @@ export default function SearchResults(props) {
     let [searchValue, setSearchValue] = useState("")
     let [searchValueArr, setSearchValueArr] = useState([])
     const [favMovieId,setFavMovieId] = useState([])
-    const host = 'http://localhost:5000'
+    const host = 'https://moviewikiapi.onrender.com'
 
 
     const searchMedia=async(search)=>{

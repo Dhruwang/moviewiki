@@ -1,6 +1,6 @@
 import './App.css';
 import Sidebar from './Components/Sidebar';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,ScrollRestoration } from "react-router-dom";
 import Background from './Components/Background';
 import Home from './Components/Home';
 import Trending from './Components/Trending';
@@ -76,7 +76,9 @@ function App() {
         <Route exact path="/search" element={<SearchResults showAlert={showAlert}/>} />
         <Route exact path="/favourites" element={<Favourites showAlert={showAlert}/>} />
         <Route exact path="/aisearch" element={<Aisearch showAlert={showAlert}/>} />
+        
       </Routes>
+      
       </div>
     </BrowserRouter>
   );

@@ -10,7 +10,7 @@ export default function Trending(props) {
     let [page, setpage] = useState(1)
     const [filter,setFilter] = useState(['all','day'])
     const [favMovieId,setFavMovieId] = useState([])
-    const host = 'http://localhost:5000'
+    const host = 'https://moviewikiapi.onrender.com'
 
 
     const getFavMovieId = async () => {

@@ -10,7 +10,7 @@ export default function Home(props) {
     const [favMovieId, setFavMovieId] = useState([])
     const [username, setusername] = useState("")
     const [gravatar, setgravatar] = useState("")
-    const host = 'http://localhost:5000'
+    const host = 'https://moviewikiapi.onrender.com'
  
 
     const getUserName = async () => {

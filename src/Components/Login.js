@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login(props) {
-    const host = 'http://localhost:5000'
+    const host = 'https://moviewikiapi.onrender.com'
     const [credentials, setcredentials] = useState({email:"",password:""})
     const Navigate = useNavigate()
 

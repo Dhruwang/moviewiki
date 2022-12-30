@@ -4,7 +4,7 @@ import Card from './Card'
 export default function Favourites(props) {
     const [favourites, setfavourites] = useState([])
     const [favMovieId,setFavMovieId] = useState([])
-    const host = 'http://localhost:5000'
+    const host = 'https://moviewikiapi.onrender.com'
 
     const getFavourites = async () => {
       if(localStorage.getItem('token')){

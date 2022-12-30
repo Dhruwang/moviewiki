@@ -155,7 +155,6 @@ export default function Moviedetails() {
                         <h1 className='text-light fs-3 px-4'>Available on</h1>
                         <div className='trendContainer d-flex px-2'>
                             {watchProviders && watchProviders.map((element, index) => {
-                                console.log(element)
                                 return <div className='mx-2' key={index} >
                                    <img src={`https://image.tmdb.org/t/p/original${element.logo_path}`}></img>
                                 </div>

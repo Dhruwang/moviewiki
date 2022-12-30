@@ -12,7 +12,7 @@ export default function Genrewise(props) {
   extractGenreId(url)
   let genreId = url.substring(url.length-count,url.length)
   const [favMovieId,setFavMovieId] = useState([])
-  const host = 'http://localhost:5000'
+  const host = 'https://moviewikiapi.onrender.com'
 
   const getFavMovieId = async () => {
     if(localStorage.getItem('token')){

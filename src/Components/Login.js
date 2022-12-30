@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 
 export default function Login(props) {
     const host = 'https://moviewikiapi.onrender.com'
@@ -43,6 +43,7 @@ export default function Login(props) {
 
     return (
         <div className='loginMain'>
+          <Link to="/"><h1 className='text-light'>MovieWiki</h1></Link>
             <div className='loginDiv my-auto'>
 
                 <h2><span className='colorblue'>Welcome</span> Back</h2>

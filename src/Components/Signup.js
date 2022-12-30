@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 export default function Signup(props) {
     const [credentials, setCredentials] = useState({username:"",email:"",password:"",cpassword:""})
@@ -35,6 +35,7 @@ export default function Signup(props) {
     }
     return (
         <div className='loginMain'>
+            <Link to="/"><h1 className='text-light'>MovieWiki</h1></Link>
             <div className='loginDiv my-auto'>
                 <h2><span className='colorblue'>Create</span> Account</h2>
                 <p className='colorgrey'>Please fill the details to continue</p>

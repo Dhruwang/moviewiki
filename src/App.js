@@ -16,6 +16,7 @@ import { useState,useEffect } from 'react';
 import Favourites from './Components/Favourites';
 import  Alert  from './Components/Alert';
 import Aisearch from "./Components/Aisearch"
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
         <Route exact path="/aisearch" element={<Aisearch showAlert={showAlert}/>} />
         
       </Routes>
-      
+      <Footer />
       </div>
     </BrowserRouter>
   );

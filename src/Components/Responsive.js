@@ -27,6 +27,7 @@ export default function Responsive() {
           <li><i class="bi bi-lightning text-light"></i> <Link to="/trending" onClick={showHideNav}> Trending</Link></li>
           <li><i class="bi bi-camera-reels text-light"></i><Link to="/genres" onClick={showHideNav}> Genres</Link></li>
           <li><i class="bi bi-heart text-light"></i><Link to="/favourites" onClick={showHideNav}> Favourites</Link></li>
+          <li><Link to = "/login" className={`${localStorage.getItem('token')?"d-none":""}`}> Login/Signup</Link></li>
           <li><button className={`${localStorage.getItem('token')?"":"d-none"}`} onClick={Logout}><i class={`bi bi-arrow-bar-left text-light `}></i> Logout</button></li>
         </ul>
       </div>

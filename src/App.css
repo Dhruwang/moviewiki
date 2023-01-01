@@ -461,9 +461,12 @@ li{
 .footer{
   padding: 2rem;
   color: white;
-  font-family: 'Maven Pro', sans-serif;
   background-color: rgba(0, 0, 0, 0.5);
 }
+.footer h3{
+  font-family: 'Maven Pro', sans-serif;
+}
+
 
 .footer i{
   font-size: 2rem;

@@ -39,7 +39,7 @@ export default function Card(props) {
           body: JSON.stringify({ movieId: id, poster: poster })
         });
         setactive(" ")
-        window.location.reload(false)
+        document.location.reload(true)
         
       }
       else {
@@ -77,7 +77,7 @@ export default function Card(props) {
   return (
     <div>
       <div className='Trendcard' key={props.index} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${props.poster_path})` }}>
-        <button className='likebtn'   onClick={() => handleLike(props.id, props.poster_path)}><i class={`bi bi-heart${props.heartFill === "-fill" ? "-fill" : active} fs-3 text-light`}></i></button>
+        <button className='likebtn'  onClick={() => handleLike(props.id, props.poster_path)}><i class={`bi bi-heart${props.heartFill === "-fill" ? "-fill" : active} fs-3 text-light`}></i></button>
         <Link to={`/media/${props.id}`}><div className='click'></div></Link>
 
       </div>

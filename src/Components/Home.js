@@ -113,7 +113,7 @@ export default function Home(props) {
                     })}
 
 
-                    <div className='Trendcard viewAll col-md-2 '>
+                    <div className='Trendcard viewAll '>
                         <Link to="/trending" className='p-0'>
                             <i class="bi bi-arrow-right-circle fs-1"></i>
                             View All</Link>
@@ -133,7 +133,7 @@ export default function Home(props) {
                         }
 
                     })}
-                    <div className='Trendcard viewAll col-md-2 '>
+                    <div className='Trendcard viewAll'>
                         <Link to="/genres" className='p-0'>
                             <i class="bi bi-arrow-right-circle fs-1"></i>
                             View All</Link>

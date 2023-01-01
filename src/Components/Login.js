@@ -4,6 +4,7 @@ import { useNavigate,Link } from 'react-router-dom'
 export default function Login(props) {
     const host = 'https://moviewikiapi.onrender.com'
     const [credentials, setcredentials] = useState({email:"",password:""})
+    const [loading, setloading] = useState(false)
     const Navigate = useNavigate()
 
     // window.location.reload()
@@ -12,6 +13,7 @@ export default function Login(props) {
     }
 
     const handleSubmit= async (e)=>{
+      setloading(true)
         console.log("submitted")
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {
@@ -24,6 +26,7 @@ export default function Login(props) {
           });
           const json = await response.json()
           console.log(json)
+          setloading(false)
           if(json.success){
             props.showAlert("success", "Logged in")
             localStorage.setItem('token',json.token)
@@ -59,7 +62,7 @@ export default function Login(props) {
                 <label for="vehicle1" className='colorgrey mx-2'> Remember me</label><br></br>
 
                 <div className='loginSignup d-flex justify-content-between mt-4'>
-                    <button type="submit" className='formbtn login'>Login</button>
+                    <button type="submit" className='formbtn login'>{loading?"please wait":"login"}</button>
                     <button className='formbtn signup' onClick={goToSignup}>Signup</button>
                 </div>
                 </form>

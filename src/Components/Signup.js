@@ -3,6 +3,7 @@ import { useNavigate,Link } from 'react-router-dom';
 
 export default function Signup(props) {
     const [credentials, setCredentials] = useState({username:"",email:"",password:"",cpassword:""})
+    const [loading, setLoading] = useState(false)
     const Navigate = useNavigate();
     const host = 'https://moviewikiapi.onrender.com'
     const goToLogin=()=>{
@@ -12,7 +13,7 @@ export default function Signup(props) {
         setCredentials({...credentials,[event.target.name]:event.target.value})
     }
     const handleSubmit= async (e)=>{
-        console.log("running")
+        setLoading(true)
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/createUser`, {
             method: 'POST',
@@ -23,14 +24,22 @@ export default function Signup(props) {
     
           });
           const json = await response.json()
-          console.log(json)
+          console.log(json.error)
+          setLoading(false)
           if(json.success){
-            // save authToken and redirect 
             localStorage.setItem('token',json.token)
             Navigate("/")
+            props.showAlert("success","Account created")
+
           }
           else{
-            props.showAlert("danger","invalid details")
+            if(json.error==="sorry user with same email already exist"){
+                props.showAlert("danger","user already exist")
+            }
+            else{
+                  props.showAlert("danger","invalid details")
+            }
+          
           }
     }
     return (
@@ -57,7 +66,7 @@ export default function Signup(props) {
                 <label for="vehicle1" className='colorgrey mx-2'> Remember me</label><br></br>
 
                 <div className='loginSignup d-flex justify-content-between mt-4'>
-                    <button className='formbtn login'>Signup</button>
+                    <button className='formbtn login'>{loading?"please wait":"SignUp"}</button>
 
                     <button className='formbtn signup' onClick={goToLogin}>Login</button>
                     

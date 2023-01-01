@@ -23,9 +23,7 @@ width: 100vw;
   opacity: 0.8;
   /* background-color: rgba(208, 208, 208, 0.648); */
 }
-::-webkit-scrollbar {
-  width: 20px;
-}
+
 .navbtn{
   position: absolute;
   display: none;
@@ -290,6 +288,12 @@ li{
 .trendContainer{
   overflow-x: scroll;
 }
+.trendContainer::-webkit-scrollbar {
+  display: none;
+}
+.genreContainer::-webkit-scrollbar {
+  display: none;
+}
 .viewAll{
   display: flex;
   flex-direction: column;
@@ -481,7 +485,7 @@ li{
   
 
 @media only screen and (max-width: 870px) {
-  .genreCard{
+  .viewAll,.genreCard{
     height: 40vh;
     width: 16rem;
   }
@@ -616,7 +620,7 @@ li{
   top:10px;
   left: 10px
 }
-.Trendcard,.genreCard{
+.Trendcard,.genreCard,.viewAll{
   height: 35vh;
   width: 10rem;
   min-width: 6rem;
@@ -658,7 +662,7 @@ li{
     width:7rem;
     
   }
-  .genreCard{
+  .genreCard,.viewAll{
     height: 25vh;
     width: 9rem;
   }
@@ -709,21 +713,21 @@ li{
 }
 }
 @media only screen and (max-width: 500px){
-  .Trendcard,.genreCard,.castCard{
+  .Trendcard,.genreCard,.castCard,.viewAll{
     height: 35vh;
     width:12rem;
     
   }
 }
 @media only screen and (max-width: 462px){
-  .Trendcard,.genreCard,.castCard{
+  .Trendcard,.genreCard,.castCard,.viewAll{
     height: 33vh;
     width:11rem;
     
   }
 }
 @media only screen and (max-width: 435px){
-  .Trendcard,.castCard{
+  .Trendcard,.castCard,.viewAll{
     height: 30vh;
     width:10rem;
     
@@ -734,7 +738,7 @@ li{
   }
 }
 @media only screen and (max-width: 398px){
-  .Trendcard,.castCard{
+  .Trendcard,.castCard,.viewAll{
     height: 25vh;
     width:8rem;  
   }
@@ -744,14 +748,14 @@ li{
   }
 }
 @media only screen and (max-width: 333px){
-  .Trendcard,.genreCard,.castCard{
+  .Trendcard,.genreCard,.castCard,.viewAll{
     height: 22vh;
     width:7rem;
     
   }
 }
 @media only screen and (max-width: 300px){
-  .Trendcard,.genreCard,.castCard{
+  .Trendcard,.genreCard,.castCard,.viewAll{
     height: 35vh;
     width:80vw;
     

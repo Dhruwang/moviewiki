@@ -35,7 +35,7 @@ export default function Sidebar(props) {
           <hr></hr>
         </div>
         <div className='userandlogin'>
-        {localStorage.getItem('token')?<button onClick={Logout} className='logoutbtn'><i class="bi bi-arrow-bar-left"></i> Logout</button>:<Link to="/login"><h5 className='align-self-end'>Login / Signup</h5></Link>}
+        {localStorage.getItem('token')?<button onClick={Logout} className='logoutbtn mx-4'><i class="bi bi-arrow-bar-left"></i> Logout</button>:<Link to="/login">Login / Signup</Link>}
         </div>
       </div>
     </div>

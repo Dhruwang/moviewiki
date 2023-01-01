@@ -29,7 +29,6 @@ export default function Sidebar(props) {
             <li><i class="bi bi-house " /><Link to="/"> Home</Link></li>
             <li><i class="bi bi-lightning "></i> <Link to="/trending"> Trending</Link></li>
             <li><i class="bi bi-camera-reels "></i><Link to="/genres"> Genres</Link></li>
-            <li><i class="bi bi-collection-play "></i><Link> Series</Link></li>
             <li><i class="bi bi-heart "></i><Link to="/favourites"> Favourites</Link></li>
           </ul>
           <hr></hr>

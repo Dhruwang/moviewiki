@@ -62,11 +62,8 @@ export default function Signup(props) {
                 <label for="fname">Confirm Password</label><br></br>
                 <input className="formInput" type="password" onChange={onChange} value={credentials.cpassword} id="cpassword" name="cpassword" />
 
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" className='checkBox'/>
-                <label for="vehicle1" className='colorgrey mx-2'> Remember me</label><br></br>
-
                 <div className='loginSignup d-flex justify-content-between mt-4'>
-                    <button className='formbtn login'>{loading?"please wait":"SignUp"}</button>
+                    <button className={`formbtn login`}>{loading?"please wait":"SignUp"}</button>
 
                     <button className='formbtn signup' onClick={goToLogin}>Login</button>
                     
